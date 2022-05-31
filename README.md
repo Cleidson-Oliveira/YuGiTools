@@ -1,4 +1,4 @@
-# TabNews Mobile
+# Yu-Gi-Tools
 
 ## Esse repositório contém os códigos da aplicação do Yugi-Tools.
 
