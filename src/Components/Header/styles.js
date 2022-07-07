@@ -25,8 +25,8 @@ export const Menu = styled.ul`
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin-right: 20px;
     gap: 10px;
+    padding: 0 30px;
 
     li {
         padding: 10px 15px;

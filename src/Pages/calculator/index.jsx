@@ -7,7 +7,7 @@ import { Wrapper } from "./style";
 import AddCard from "../../Components/AddCard";
 import CardList from "../../Components/CardList";
 import Results from "../../Components/Results";
-import { Title } from "../../Components/Layout/styles";
+import { Title } from "../../Components/Layout";
 import { GlobalStyle } from "../../styles";
 import Footer from "../../Components/Footer";
 
