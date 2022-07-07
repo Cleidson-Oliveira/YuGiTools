@@ -1,4 +1,4 @@
-import styled, { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
     *{
@@ -17,15 +17,6 @@ export const GlobalStyle = createGlobalStyle`
     input[type=number] {
         -moz-appearance: textfield;
     }
-`;
-
-export const Wrapper = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    width: 100vw;
-    margin: auto;
 `;
 
 export const Colors = {

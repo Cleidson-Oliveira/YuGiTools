@@ -21,7 +21,7 @@ export const Logo = styled.div`
     background-repeat: no-repeat;
 `;
 
-export const Menu = styled.ul`
+export const Social = styled.ul`
     display: flex;
     flex-direction: row;
     align-items: center;
