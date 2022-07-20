@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 
 import { BiUpArrow } from "react-icons/bi"
+import CardShearchResult from "../../Components/CardSearchResult";
 
 import Footer from "../../Components/Footer";
 import Header from "../../Components/Header";
 import { Button, RoundedButton, Title } from "../../Components/Layout"
-import { ButtonConteiner, Card, Wrapper } from "./style";
+import { ButtonConteiner, Card, Form, Input, Wrapper } from "./style";
 
 export default function CardSearcher () {
 
@@ -18,7 +19,9 @@ export default function CardSearcher () {
     }, [])
     
     useEffect(() => {
-        console.log(cardInfos)
+        if (cardInfos != null){ 
+            console.log(cardInfos)
+        }
     }, [cardInfos])
 
     const getCardList = async () => {
@@ -40,7 +43,7 @@ export default function CardSearcher () {
             const data = await fetch(`https://db.ygoprodeck.com/api/v7/cardinfo.php?name=${cardName}`);
             const dataJson = await data.json();
 
-            setCardInfos(dataJson.data);
+            setCardInfos(dataJson.data[0]);
         } catch (err) {
             alert("Digite um nome válido")
         }
@@ -62,22 +65,28 @@ export default function CardSearcher () {
             </Title>
 
             <Wrapper>
-                <form 
+                <Form
                     onSubmit={(e) => {
                         e.preventDefault()
                         search(e.target[0].value)
                     }}
                 >
-                    <input
+                    <Input
                         type="text"
                         placeholder="digite o nome do card"
                     />
-                    <input
+                    <Input
                         type="submit"
                         value="Search"
                     />
-                </form>
+                </Form>
             </Wrapper>
+
+            {cardInfos != null && (
+                <CardShearchResult 
+                    cardInfos={cardInfos}
+                />
+            )}
 
             <Wrapper>
                 {cardList.length >= 0 && cardList.map((card, index) => {

@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import { Colors } from "../../styles"
+
 export const Wrapper = styled.main`
     display: flex;
     flex-wrap: wrap;
@@ -38,4 +40,33 @@ export const ButtonConteiner = styled.div`
     justify-content: center;
     height: 80px;
     width: 100%;
+`;
+
+export const Form = styled.form`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    
+    input[type=submit] {
+        cursor: pointer;
+        transition: all .5s ease;
+
+        &:hover {
+            background-color: ${Colors.color1};
+            color: ${Colors.color2};
+        }
+    }
+`;
+
+export const Input = styled.input`
+    width: 20%;
+    height: 40px;
+    padding: 5px 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    outline: none;
+    font-size: .8em;
+    margin: 10px 0 10px 15px;
+    box-sizing: border-box;
 `;
