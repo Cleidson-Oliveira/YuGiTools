@@ -57,6 +57,7 @@ export const Form = styled.form`
             color: ${Colors.color2};
         }
     }
+
 `;
 
 export const Input = styled.input`
@@ -69,4 +70,12 @@ export const Input = styled.input`
     font-size: .8em;
     margin: 10px 0 10px 15px;
     box-sizing: border-box;
+
+    @media only screen and (max-width: 800px) {
+        width: 40%;
+    }
+
+    @media only screen and (max-width: 500px) {
+        width: 50%;
+    }
 `;

@@ -22,4 +22,17 @@ export const Wrapper = styled.div`
         grid-column: 6/11;
         grid-row: 3/6;
     }
+
+    @media only screen and (max-width: 600px) {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        height: auto;
+        padding: 1rem;
+        box-sizing: border-box;
+
+        img {
+            width: 80%;
+        }
+    }
 `;
