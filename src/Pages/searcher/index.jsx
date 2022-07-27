@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 
 import { BiUpArrow } from "react-icons/bi"
+import ReactModal from "react-modal";
 import CardShearchResult from "../../Components/CardSearchResult";
 
 import Footer from "../../Components/Footer";
@@ -13,16 +14,11 @@ export default function CardSearcher () {
     const [cardList, setCardList] = useState([]);
     const [cardInfos, setCardInfos] = useState(null);
     const [amountCardsOnList, setAmountCardsOnList] = useState(100);
+    const [modalIsOpen, setModalIsOpen] = useState(false)
 
     useEffect(() => {
         getCardList()
     }, [])
-    
-    useEffect(() => {
-        if (cardInfos != null){ 
-            console.log(cardInfos)
-        }
-    }, [cardInfos])
 
     const getCardList = async () => {
         const data = await fetch("https://db.ygoprodeck.com/api/v7/cardinfo.php");
@@ -44,6 +40,7 @@ export default function CardSearcher () {
             const dataJson = await data.json();
 
             setCardInfos(dataJson.data[0]);
+            handleShowModal()
         } catch (err) {
             alert("Digite um nome válido")
         }
@@ -54,8 +51,22 @@ export default function CardSearcher () {
         window.scroll(0, 0)
     }
 
+    const handleShowModal = () => {
+        setModalIsOpen(prevState => !prevState)
+    }
+
     return (
         <>
+            <ReactModal
+                isOpen={modalIsOpen}
+                shouldCloseOnOverlayClick={true}
+                shouldCloseOnEsc={true}
+                onRequestClose={handleShowModal}
+                ariaHideApp={false}
+            >
+                <CardShearchResult cardInfos={cardInfos} />
+            </ReactModal>
+
             <Header />
 
             <Title>
@@ -73,7 +84,7 @@ export default function CardSearcher () {
                 >
                     <Input
                         type="text"
-                        placeholder="digite o nome do card"
+                        placeholder="Digite o nome do card"
                     />
                     <Input
                         type="submit"
@@ -81,12 +92,6 @@ export default function CardSearcher () {
                     />
                 </Form>
             </Wrapper>
-
-            {cardInfos != null && (
-                <CardShearchResult 
-                    cardInfos={cardInfos}
-                />
-            )}
 
             <Wrapper>
                 {cardList.length >= 0 && cardList.map((card, index) => {

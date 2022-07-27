@@ -5,6 +5,7 @@ export const GlobalStyle = createGlobalStyle`
         padding: 0;
         margin: 0;
         font-family: sans-serif;
+        scroll-behavior: smooth;
     }
     body, #root{
         min-height: 100vh;

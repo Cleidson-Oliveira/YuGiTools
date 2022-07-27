@@ -18,9 +18,13 @@ export const Wrapper = styled.div`
         grid-column: 6/11;
         grid-row: 2/3;
     }
-    p {
+    div {
         grid-column: 6/11;
-        grid-row: 3/6;
+        grid-row-start: 3;
+
+        img {
+            width: 1.5rem;
+        }
     }
 
     @media only screen and (max-width: 600px) {
