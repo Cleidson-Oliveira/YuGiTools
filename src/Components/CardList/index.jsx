@@ -1,19 +1,20 @@
-//UTILITIES MODULES
 import { UniqueKey } from "../../utilities/General";
 
-//STYLES
 import { Wrapper, CardItem, ButtonDelete, ButtonCalc, Indicator } from "./styles";
 
-//ICONS
 import { AiOutlineDelete } from "react-icons/ai";
 import { ImCheckmark } from "react-icons/im";
 
-//IMAGES
 import hand from "../../Images/handIcon.png"
 import deck from "../../Images/deckIcon.png"
 
-export default function CardList (props) {
-    let { cardList, removeCardFromList, handAndDeckStatus, calc, inicialDeck, inicialHand } = props;
+export default function CardList ({ 
+    cardList, 
+    removeCardFromList, 
+    calc, 
+    inicialDeck, 
+    inicialHand 
+}) {
 
     return (
         <Wrapper>

@@ -39,6 +39,11 @@ export const Input = styled.input`
     margin: 10px 0 10px 15px;
     box-sizing: border-box;
 
+    &:focus {
+        border: 3px solid #3d3d72;
+        transition: none;
+    }
+
     @media only screen and (max-width: 800px) {
         width: 40%;
     }
@@ -48,8 +53,13 @@ export const Input = styled.input`
     }
 `;
 
-export const CardList = styled.div`
-    width: 60%;
+export const CardGallery = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem 1rem;
+    width: 85%;
+    margin-top: 2rem;
 `;
 
 export const Card = styled.div`
@@ -59,20 +69,18 @@ export const Card = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 20px 0;
+    padding: 0;
     cursor: pointer;
+    transition: all .1s ease;
     
     img {
-        transition: all .1s ease;
-        box-sizing: border-box;
         width: 215px;
         height: 314px;
     }
 
-    :hover {
-        img {
-            border: 3px solid green;
-        }
+    &:hover, &:focus {
+        transform: scale(1.1);
+        outline: none;
     }
 `;
 

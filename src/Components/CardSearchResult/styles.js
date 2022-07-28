@@ -4,10 +4,11 @@ export const Wrapper = styled.div`
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: repeat(12, 1fr);
-    width: 100vw;
-    height: 500px;
+    width: 100%;
+    height: 100%;
     align-items: stretch;
     gap: 1rem;
+    background: #aaaaff70;
 
     img {
         grid-column: 3/5;

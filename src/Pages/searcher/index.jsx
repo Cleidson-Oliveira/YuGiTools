@@ -7,17 +7,17 @@ import CardShearchResult from "../../Components/CardSearchResult";
 import Footer from "../../Components/Footer";
 import Header from "../../Components/Header";
 import { Button, RoundedButton, Title } from "../../Components/Layout"
-import { ButtonConteiner, Card, Form, Input, Wrapper } from "./style";
+import { ButtonConteiner, Card, CardGallery, Form, Input, Wrapper } from "./style";
 
 export default function CardSearcher () {
 
     const [cardList, setCardList] = useState([]);
     const [cardInfos, setCardInfos] = useState(null);
     const [amountCardsOnList, setAmountCardsOnList] = useState(100);
-    const [modalIsOpen, setModalIsOpen] = useState(false)
+    const [modalIsOpen, setModalIsOpen] = useState(false);
 
     useEffect(() => {
-        getCardList()
+        getCardList();
     }, [])
 
     const getCardList = async () => {
@@ -28,7 +28,7 @@ export default function CardSearcher () {
     }
 
     const handlerCards = () => {
-        setAmountCardsOnList(prevState => prevState + 50)
+        setAmountCardsOnList(prevState => prevState + 100)
     }
 
     const search = async (cardName) => {
@@ -70,9 +70,7 @@ export default function CardSearcher () {
             <Header />
 
             <Title>
-                <h1>
-                    Buscar cards
-                </h1>
+                <h1>Buscar cards</h1>
             </Title>
 
             <Wrapper>
@@ -94,12 +92,14 @@ export default function CardSearcher () {
             </Wrapper>
 
             <Wrapper>
+                <CardGallery>
                 {cardList.length >= 0 && cardList.map((card, index) => {
                     if (index < amountCardsOnList) {
                         return (
                             <Card 
                                 key={card.name}
                                 onClick={() => search(card.name)}
+                                tabIndex="0"
                             >
                                 <img src={card.card_images[0].image_url}/>
                                 <p>{card.name}</p>
@@ -107,6 +107,7 @@ export default function CardSearcher () {
                         )
                     }
                 })}
+                </CardGallery>
             </Wrapper>
 
             <ButtonConteiner>
