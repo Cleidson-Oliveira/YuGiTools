@@ -23,23 +23,9 @@ function factoryCard (nome, qtdHand, qtdDeck) {
 export default function Calculator() {
 
   const [cardList, setCardList] = useState([]);
-  // const [handAndDeckStatus, setHandAndDeckStatus] = useState({deck : 0, hand : 0})
   const [inicialDeck, setInicialDeck] = useState(40);
   const [inicialHand, setInicialHand] = useState(5);
   const [result, setResult] = useState();
-  
-
-  // useEffect(() => {
-  //   let hand = 0;
-  //   let deck = 0;
-
-  //   cardList.map(carItem => {
-  //     deck += parseInt(carItem.qtdDeck);
-  //     hand += parseInt(carItem.qtdHand);
-  //   })
-
-  //   setHandAndDeckStatus({deck, hand})
-  // }, [cardList])
 
   const addCardOnList = (nome, qtdHand, qtdDeck) => {
     setCardList(() => {
@@ -100,7 +86,6 @@ export default function Calculator() {
         {!!cardList.length && <CardList 
           cardList={cardList}
           removeCardFromList={removeCardFromList}
-          // handAndDeckStatus={handAndDeckStatus}
           calc={calc}
           inicialDeck={inicialDeck}
           inicialHand={inicialHand}
